@@ -9,5 +9,10 @@ type Res2 = Join<["2", "2", "2"], 1>; // expected to be '21212'
 type Res3 = Join<["o"], "u">; // expected to be 'o'
 ```
 
+answer
+```ts
+type Join<T, U extends string | number> = T extends [infer A1 extends string, ...infer A2]  ? `${A1}${A2["length"] extends 0 ? '' : U}${Join<A2, U>}` : '';
+```
+
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/5310/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/5310/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

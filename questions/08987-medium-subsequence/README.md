@@ -10,5 +10,10 @@ For example:
 type A = Subsequence<[1, 2] // [] | [1] | [2] | [1, 2]
 ```
 
+answer
+```ts
+type Subsequence<T extends any[]> = T extends [infer A1, ...infer A2] ? Subsequence<A2> | [A1, ...Subsequence<A2>] : [];
+```
+
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/8987/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/8987/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
